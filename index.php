@@ -142,7 +142,7 @@
                         alt="..."></img>
                 </div>
             </div>
-            <div class="experienced__bottom">
+            <!-- <div class="experienced__bottom">
                 <div class="experienced__list">
                     <div class="experienced__list-item">
                         <img loading="lazy" src="<?php echo $local ?>/images/users/user_1.webp" alt="..."></img>
@@ -173,9 +173,9 @@
                         <div class="experienced__list-item-text">CK: Phục hồi chức năng</div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="experienced__bottom-mobile">
+            <!-- <div class="experienced__bottom-mobile">
                 <span class="experienced__bottom-mobile-title">ĐỘI NGŨ BÁC SĨ GIỎI</span>
                 <div class="experienced__bottom-mobile-card activeexperienced">
                     <img loading="lazy" width="56%" height="auto" src="<?php echo $local ?>/images/users/user_1.webp"
@@ -201,13 +201,13 @@
                     <div class="experienced__bottom-mobile-text"> Trần gia phú</div>
                     <div class="experienced__bottom-mobile-text1">CK: Phục hồi chức năng</div>
                 </div>
-            </div>
-            <div class="index-experienced">
+            </div> -->
+            <!-- <div class="index-experienced">
                 <div class="experienced-item experienced-item-0 activeexperienced"></div>
                 <div class="experienced-item experienced-item-1 "></div>
                 <div class="experienced-item experienced-item-2"></div>
                 <div class="experienced-item experienced-item-3"></div>
-            </div>
+            </div> -->
 
         </section>
 
