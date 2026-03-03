@@ -30,8 +30,8 @@ header("Pragma: no-cache");
 header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 header("Cache-Control: max-age=2592000");
 
-// $local = 'http://localhost/_nhatvietnew/benhtri.phongkhamnhatviet.vn';
-$local = 'https://benhtri.phongkhamnhatviet.vn'
+$local = 'http://localhost/_nhatvietnew/benhtri.phongkhamnhatviet.vn';
+// $local = 'https://benhtri.phongkhamnhatviet.vn'
 ?>
 <!DOCTYPE html>
 <html lang="en">
