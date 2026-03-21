@@ -3,8 +3,8 @@
         <div style="display: flex;" class="list_image">
             <img fetchpriority=high height="100%" width="100%"
                 src="<?php echo $local ?>/images/banner/bg_carousell0.webp" alt="...">
-            <img fetchpriority=high height="100%" width="100%"
-                src="<?php echo $local ?>/images/banner/bg_carousell01.webp" alt="...">
+            <!-- <img fetchpriority=high height="100%" width="100%"
+                src="<?php echo $local ?>/images/banner/bg_carousell01.webp" alt="..."> -->
             <img fetchpriority=high height="100%" width="100%"
                 src="<?php echo $local ?>/images/banner/bg_carousell02.webp" alt="...">
         </div>
@@ -16,7 +16,7 @@
         </div>
         <div class="index-images">
             <div class="index-item index-item-0 active"></div>
-            <div class="index-item index-item-1"></div>
+            <!-- <div class="index-item index-item-1"></div> -->
             <div class="index-item index-item-2"></div>
         </div>
     </div>
