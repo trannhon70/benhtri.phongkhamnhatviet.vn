@@ -189,7 +189,7 @@ setTitleAndScroll();
                     if (imgElements[i].src.startsWith(
                             '<?php echo $local ?>/ckfinder/userfiles/images/Chat/Chat-Dakhoa.gif') ==
                         // if (imgElements[i].src.startsWith(
-                        // 'http://localhost/ckfinder/userfiles/images/Chat/Chat-Dakhoa.gif') ==
+                        //         'http://localhost/ckfinder/userfiles/images/Chat/Chat-Dakhoa.gif') ==
                         true) {
                         imgElements[i].style.borderRadius = '8px';
                         imgElements[i].style.setProperty('display', 'block', 'important');
@@ -254,9 +254,21 @@ setTitleAndScroll();
 
         const loadBody = () => {
             let content = `<?php echo htmlspecialchars_decode($get_post_detail['content']); ?>`;
-            bodyPlaceholder.innerHTML = content;
+            // Gán tạm nội dung vào DOM ẩn để xử lý
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = content;
+
+            // Duyệt tất cả text node
+            const walker = document.createTreeWalker(tempDiv, NodeFilter.SHOW_TEXT, null, false);
+            while (walker.nextNode()) {
+                const node = walker.currentNode;
+                // Thay số điện thoại
+                node.nodeValue = node.nodeValue.replace(/\(028\)\s*7776\s*7777/g, '(028) 7776 7777 - 0901 869 945');
+            }
+
+            // Gán ra DOM chính
+            bodyPlaceholder.innerHTML = tempDiv.innerHTML;
             bodyPlaceholder.classList.add("loaded");
-            observer.unobserve(bodyPlaceholder);
         };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
