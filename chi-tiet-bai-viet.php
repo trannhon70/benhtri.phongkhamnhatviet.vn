@@ -8,11 +8,12 @@ $parsed_url = parse_url($current_url);
 
 $path = parse_url($parsed_url['path'], PHP_URL_PATH); // Lấy phần path từ URL
 $filename = basename($path, ".html"); // Lấy tên file và loại bỏ .html
-
 $getDanhMucBenhByBaiViet = $khoas->getDanhMucBenhByBaiViet($filename);
 $getActiveByBenh = $benh->getActiveByBenh($filename);
-$get_post_detail = $post->getBaiViet_bySlug($filename);
-
+$data = $post->getBaiViet_bySlug($filename);
+$get_post_detail = $data['post'];
+$post_connection = $data['related'];
+// var_dump($get_post_detail);
 function setTitleAndScroll()
 {
     global $get_post_detail; // Đảm bảo truy cập biến toàn cục
@@ -74,19 +75,44 @@ setTitleAndScroll();
 
             </div>
             <div class="danhmuc__right">
-                <?php if (Session::get('role') === '1' || Session::get('role') === '2') {
-                ?>
+                <div id="category__right-breadcrumb" class="category__right-breadcrumb">
+                    Trang chủ > <?php echo $get_post_detail['name_khoa'] ?>
+                </div>
+                <div>
+                    <?php if (Session::get('role') === '1' || Session::get('role') === '2') {
+                    ?>
 
-                    <a class="chinh-sua"
-                        href="<?php echo $local ?>/admin/bai-viet-edit.php?edit=<?php echo $get_post_detail['id'] ?>"><i
-                            style="font-size:19px" class="bx bxs-pencil"></i>chỉnh sửa</a>
+                        <a class="chinh-sua"
+                            href="<?php echo $local ?>/admin/bai-viet-edit.php?edit=<?php echo $get_post_detail['id'] ?>"><i
+                                style="font-size:19px" class="bx bxs-pencil"></i>chỉnh sửa</a>
 
-                <?php } ?>
+                    <?php } ?>
+                </div>
                 <div class="danhmuc__right-title"><?php echo $get_post_detail['tieu_de'] ?></div>
-                <!-- <a href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;" id="bg_mobile_km">
-                    <img width="100%" height="auto" src="<?php echo $local ?>/images/logo_mobile/bg_mobile_km.gif"
-                        alt="...">
-                </a> -->
+                <div id="cardbs" class="swiper ">
+                    <div
+                        style="padding: 10px; display: flex; align-items: center; justify-content: space-between; background-color: aliceblue; ">
+                        <div style="display: flex; align-items: center; gap: 2px; ">
+                            <img loading="lazy" src="<?php echo $local ?>/images/icons/icon_star.webp" alt="..."
+                                style="width: 15px; height: 15px;">
+                            <img loading="lazy" src="<?php echo $local ?>/images/icons/icon_star.webp" alt="..."
+                                style="width: 15px; height: 15px;">
+                            <img loading="lazy" src="<?php echo $local ?>/images/icons/icon_star.webp" alt="..."
+                                style="width: 15px; height: 15px;">
+                            <img loading="lazy" src="<?php echo $local ?>/images/icons/icon_star.webp" alt="..."
+                                style="width: 15px; height: 15px;">
+                            <img loading="lazy" src="<?php echo $local ?>/images/icons/icon_star.webp" alt="..."
+                                style="width: 15px; height: 15px;">
+                            <div style="color: #ff9900; font-weight: 700;">
+                                9.5/10 <span style="color: #999999; font-weight: 500;"> điểm</span>
+                            </div>
+                        </div>
+                        <div id="views" style="color: #999999; font-weight: 700;">
+                            Lượt xem: ...
+                        </div>
+                    </div>
+
+                </div>
                 <hr>
 
                 <div class="danhmuc__right-content" id="bai-viet">
@@ -100,6 +126,14 @@ setTitleAndScroll();
 
             </div>
         </div>
+        <div class="post_connection">
+            <div class="post_connection_title">Danh sách bài viết liên quan :</div>
+            <?php foreach ($post_connection as $index => $item) { ?>
+                <a class="post_connection_item" href="<?php echo $item["slug"] ?>.html"><span><?php echo $index + 1; ?> .</span> <?php echo $item['title']; ?></a>
+            <?php } ?>
+
+        </div>
+        <?php include_once "layout/feedback_component.php" ?>
     </main>
 
     <script>
@@ -283,5 +317,13 @@ setTitleAndScroll();
         // Khởi tạo tải content ban đầu và bắt đầu quan sát bodyPlaceholder
 
         observer.observe(bodyPlaceholder);
+    </script>
+    <script defer>
+        function getRandomViews() {
+            return Math.floor(Math.random() * (10000 - 2000 + 1)) + 2000;
+        }
+
+        const viewElement = document.getElementById('views');
+        viewElement.textContent = `Lượt xem: ${getRandomViews()}`;
     </script>
     <?php include 'inc/footer.php' ?>
