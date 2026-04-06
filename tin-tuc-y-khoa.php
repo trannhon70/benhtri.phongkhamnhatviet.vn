@@ -10,11 +10,11 @@ $parsed_url = parse_url($current_url);
 $path = parse_url($parsed_url['path'], PHP_URL_PATH); // Lấy phần path từ URL
 $filename = basename($path, ".html"); // Lấy tên file và loại bỏ .html
 
-$getByIdTT = null;
+$get_post_detail = null;
 if ($filename === 'tin-tuc-y-khoa') {
-    $getByIdTT = $tin_tuc->getOneLimitTinTuc();
+    $get_post_detail = $tin_tuc->getOneLimitTinTuc();
 } else {
-    $getByIdTT = $tin_tuc->getByslug_tintuc($filename);
+    $get_post_detail = $tin_tuc->getByslug_tintuc($filename);
 }
 
 ?>
@@ -44,11 +44,11 @@ if ($filename === 'tin-tuc-y-khoa') {
                 ?>
 
                     <a class="chinh-sua"
-                        href="<?php echo $local ?>/admin/tin-tuc-edit.php?edit=<?php echo $getByIdTT['id'] ?>"><i
+                        href="<?php echo $local ?>/admin/tin-tuc-edit.php?edit=<?php echo $get_post_detail['id'] ?>"><i
                             style="font-size:19px" class="bx bxs-pencil"></i>chỉnh sửa</a>
 
                 <?php } ?>
-                <div class="danhmuc__right-title"><?php echo $getByIdTT['tieu_de'] ?></div>
+                <div class="danhmuc__right-title"><?php echo $get_post_detail['tieu_de'] ?></div>
                 <div id="cardbs">
                     <div
                         style="padding: 10px; display: flex; align-items: center; justify-content: space-between; background-color: aliceblue; ">
@@ -73,13 +73,14 @@ if ($filename === 'tin-tuc-y-khoa') {
                     </div>
 
                 </div>
-                <div id="bg_mobile_km">
+                <a href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;" id="bg_mobile_km">
                     <img width="100%" height="auto" src="<?php echo $local ?>/images/logo_mobile/bg_mobile_km.gif"
                         alt="...">
-                </div>
+                </a>
                 <hr>
                 <div class="danhmuc__right-content" id="bai-viet">
-                    <?php echo htmlspecialchars_decode($getByIdTT['content']); ?> </div>
+                    <!-- <?php echo htmlspecialchars_decode($get_post_detail['content']); ?>  -->
+                </div>
 
             </div>
         </div>
@@ -95,7 +96,7 @@ if ($filename === 'tin-tuc-y-khoa') {
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+        function applyCSSandJS() {
             //images gây shock
             const shockElements = document.querySelectorAll('.shock_img');
             shockElements.forEach(shockElement => {
@@ -187,7 +188,10 @@ if ($filename === 'tin-tuc-y-khoa') {
                         imgElements[i].style.setProperty('display', 'block', 'important');
                         let divWrapper = document.createElement('a');
                         divWrapper.className = 'glow-on-hover';
-                        divWrapper.href = "https://tuvan.mayo.com.vn/LR/Chatpre.aspx?id=KUK38256576&lng=en";
+                        divWrapper.href = "javascript:void(0)";
+                        divWrapper.addEventListener("click", function() {
+                            openZoosUrl('chatwin');
+                        });
                         divWrapper.setAttribute("aria-label", "Chat da khoa");
                         imgElements[i].parentNode.insertBefore(divWrapper, imgElements[i]);
                         divWrapper.appendChild(imgElements[i])
@@ -236,7 +240,42 @@ if ($filename === 'tin-tuc-y-khoa') {
             } else {
                 console.warn("One or more elements were not found in the DOM.");
             }
-        })
+        }
+    </script>
+    <script>
+        const bodyPlaceholder = document.getElementById("bai-viet");
+
+        const loadBody = () => {
+            let content = `<?php echo htmlspecialchars_decode($get_post_detail['content']); ?>`;
+            // Gán tạm nội dung vào DOM ẩn để xử lý
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = content;
+
+            // Duyệt tất cả text node
+            const walker = document.createTreeWalker(tempDiv, NodeFilter.SHOW_TEXT, null, false);
+            while (walker.nextNode()) {
+                const node = walker.currentNode;
+                // Thay số điện thoại
+                node.nodeValue = node.nodeValue.replace(/\(028\)\s*7776\s*7777/g, '0901 869 945');
+            }
+
+            // Gán ra DOM chính
+            bodyPlaceholder.innerHTML = tempDiv.innerHTML;
+            bodyPlaceholder.classList.add("loaded");
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadBody();
+                    applyCSSandJS();
+                    checkImgMobile()
+                }
+            });
+        });
+
+        // Khởi tạo tải content ban đầu và bắt đầu quan sát bodyPlaceholder
+
+        observer.observe(bodyPlaceholder);
     </script>
 
     <?php include 'inc/footer.php' ?>

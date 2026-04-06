@@ -113,16 +113,16 @@ setTitleAndScroll();
                     </div>
 
                 </div>
+                <a href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;" id="bg_mobile_km">
+                    <img width="100%" height="auto" src="<?php echo $local ?>/images/logo_mobile/bg_mobile_km.gif"
+                        alt="...">
+                </a>
                 <hr>
 
                 <div class="danhmuc__right-content" id="bai-viet">
 
                 </div>
-                <div class="bai-viet-footer">Nội dung bài viết cung cấp nhằm mục đích tham khảo thêm kiến thức y tế,
-                    một số nội dung có thể không thuộc nghiệp vụ của phòng khám chúng tôi, Hiệu quả của việc hỗ trợ
-                    điều trị phụ thuộc vào cơ địa của mỗi người. Cần biết thông tin liên hệ để được tư vấn trực
-                    tuyến miễn phí.<a href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;">[TƯ VẤN TRỰC TUYẾN]</a>
-                </div>
+
 
             </div>
         </div>
@@ -297,7 +297,7 @@ setTitleAndScroll();
             while (walker.nextNode()) {
                 const node = walker.currentNode;
                 // Thay số điện thoại
-                node.nodeValue = node.nodeValue.replace(/\(028\)\s*7776\s*7777/g, '(028) 7776 7777 - 0901 869 945');
+                node.nodeValue = node.nodeValue.replace(/\(028\)\s*7776\s*7777/g, '0901 869 945');
             }
 
             // Gán ra DOM chính
