@@ -212,6 +212,14 @@
          });
      });
  </script>
+ <script defer>
+     function getRandomViews() {
+         return Math.floor(Math.random() * (10000 - 2000 + 1)) + 2000;
+     }
+
+     const viewElement = document.getElementById('views');
+     viewElement.textContent = `Lượt xem: ${getRandomViews()}`;
+ </script>
  </body>
 
 

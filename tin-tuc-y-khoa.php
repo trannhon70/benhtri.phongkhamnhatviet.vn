@@ -37,6 +37,9 @@ if ($filename === 'tin-tuc-y-khoa') {
 
             </div>
             <div class="danhmuc__right">
+                <div>
+                    Trang chủ > Tin Tức
+                </div>
                 <?php if (Session::get('role') === '1' || Session::get('role') === '2') {
                 ?>
 
@@ -46,6 +49,30 @@ if ($filename === 'tin-tuc-y-khoa') {
 
                 <?php } ?>
                 <div class="danhmuc__right-title"><?php echo $getByIdTT['tieu_de'] ?></div>
+                <div id="cardbs">
+                    <div
+                        style="padding: 10px; display: flex; align-items: center; justify-content: space-between; background-color: aliceblue; ">
+                        <div style="display: flex; align-items: center; gap: 2px; ">
+                            <img loading="lazy" src="<?php echo $local ?>/images/icons/icon_star.webp" alt="..."
+                                style="width: 15px; height: 15px;">
+                            <img loading="lazy" src="<?php echo $local ?>/images/icons/icon_star.webp" alt="..."
+                                style="width: 15px; height: 15px;">
+                            <img loading="lazy" src="<?php echo $local ?>/images/icons/icon_star.webp" alt="..."
+                                style="width: 15px; height: 15px;">
+                            <img loading="lazy" src="<?php echo $local ?>/images/icons/icon_star.webp" alt="..."
+                                style="width: 15px; height: 15px;">
+                            <img loading="lazy" src="<?php echo $local ?>/images/icons/icon_star.webp" alt="..."
+                                style="width: 15px; height: 15px;">
+                            <div style="color: #ff9900; font-weight: 700;">
+                                9.5/10 <span style="color: #999999; font-weight: 500;"> điểm</span>
+                            </div>
+                        </div>
+                        <div id="views" style="color: #999999; font-weight: 700;">
+                            Lượt xem: ...
+                        </div>
+                    </div>
+
+                </div>
                 <div id="bg_mobile_km">
                     <img width="100%" height="auto" src="<?php echo $local ?>/images/logo_mobile/bg_mobile_km.gif"
                         alt="...">
@@ -56,6 +83,15 @@ if ($filename === 'tin-tuc-y-khoa') {
 
             </div>
         </div>
+        <div class="post_connection">
+            <div class="post_connection_title">Danh sách bài viết liên quan :</div>
+            <a class="post_connection_item" href="phong-kham-hau-mon-nao-chat-luong-uy-tin-tai-hcm-15.html"><span>1. </span>Phòng khám hậu môn nào chất lượng uy tín tại hcm</a>
+            <a class="post_connection_item" href="phong-kham-da-lieu-uy-tin-duoc-tin-chon-tai-tphcm-11.html"><span>2. </span>Phòng khám Da liễu uy tín được tin chọn tại TPHCM</a>
+            <a class="post_connection_item" href="phong-kham-benh-xa-hoi-uy-tin-duoc-tin-chon-tai-tphcm-10.html"><span>3. </span>Phòng khám Bệnh xã hội uy tín được tin chọn tại TPHCM</a>
+            <a class="post_connection_item" href="phong-kham-hau-mon-truc-trang-uy-tin-duoc-tin-chon-tai-tphcm-9.html"><span>4. </span>Phòng khám Hậu môn Trực tràng được tin chọn tại TPHCM</a>
+            <a class="post_connection_item" href="phong-kham-nam-khoa-uy-tin-duoc-tin-chon-tai-tphcm-8.html"><span>5. </span>Phòng khám Nam Khoa uy tín được tin chọn tại TPHCM</a>
+        </div>
+        <?php include_once "layout/feedback_component.php" ?>
     </main>
 
     <script>

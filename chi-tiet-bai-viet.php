@@ -89,7 +89,7 @@ setTitleAndScroll();
                     <?php } ?>
                 </div>
                 <div class="danhmuc__right-title"><?php echo $get_post_detail['tieu_de'] ?></div>
-                <div id="cardbs" class="swiper ">
+                <div id="cardbs">
                     <div
                         style="padding: 10px; display: flex; align-items: center; justify-content: space-between; background-color: aliceblue; ">
                         <div style="display: flex; align-items: center; gap: 2px; ">
@@ -318,12 +318,5 @@ setTitleAndScroll();
 
         observer.observe(bodyPlaceholder);
     </script>
-    <script defer>
-        function getRandomViews() {
-            return Math.floor(Math.random() * (10000 - 2000 + 1)) + 2000;
-        }
 
-        const viewElement = document.getElementById('views');
-        viewElement.textContent = `Lượt xem: ${getRandomViews()}`;
-    </script>
     <?php include 'inc/footer.php' ?>
