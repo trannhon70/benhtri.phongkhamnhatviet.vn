@@ -123,8 +123,40 @@
         </a>
     </div>
     <div class="header__mobile-banner">
-        <img src="<?php echo $local ?>/images/banner/mobile_banner.webp" alt="Banner" width="1200" height="400"
-            style="width:100%; height:auto;" fetchpriority="high">
+
+        <div class="carousel" id="carousel">
+            <div class="carousel-track">
+
+                <!-- Slide 1 (LCP) -->
+                <div class="slide">
+                    <div style="position:relative;width:100%;max-width:100%;">
+                        <img
+                            src="<?php echo $local ?>/images/banner/mobile_banner.webp"
+                            fetchpriority="high"
+                            decoding="async"
+                            width="1920"
+                            height="600"
+                            style="width:100%;object-fit:cover;"
+                            alt="banner phòng khám">
+                    </div>
+                </div>
+                <!-- Slide 1 (LCP) -->
+                <div class="slide">
+                    <div style="position:relative;width:100%;max-width:100%;">
+                        <img
+                            src="<?php echo $local ?>/images/banner/3.webp"
+                            decoding="async"
+                            width="1920"
+                            height="600"
+                            style="width:100%;object-fit:cover;"
+                            alt="banner phòng khám">
+                    </div>
+                </div>
+            </div>
+            <button style=" display:none;" class="nav prev">❮</button>
+            <button style="display:none;" class="nav next">❯</button>
+            <div class="dots"></div>
+        </div>
     </div>
 
     <nav>
