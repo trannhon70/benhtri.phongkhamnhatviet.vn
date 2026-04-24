@@ -17,7 +17,7 @@
                          <div>Tổng đài hỗ trợ khách hàng 24/7</div>
                      </div>
                  </a>
-                 <a href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;" class="footer__support-body-card">
+                 <a href="javascript:void(0)" onclick="openChatPopup()" class="footer__support-body-card">
                      <img loading="lazy" class="footer__support-body-card-img"
                          src="<?php echo $local ?>/images/icons/icon_group_chat.webp" height="54px" width="80px"
                          alt="..."></img>
@@ -103,7 +103,7 @@
                      <span>GỌI NGAY</span>
                  </div>
              </a>
-             <a href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;" class="footer__mobile-container-right">
+             <a href="javascript:void(0)" onclick="openChatPopup()" class="footer__mobile-container-right">
                  <div>ĐẶT LỊCH</div>
                  <img loading="lazy" width="70px" height="auto" src="<?php echo $local ?>/images/icons/icon_lich.png"
                      alt="...">
@@ -113,20 +113,20 @@
  </footer>
  <div class="footer_list_icon">
      <div>
-         <a class="footer_icon_happy" href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;">
+         <a class="footer_icon_happy" href="javascript:void(0)" onclick="openChatPopup()">
              <img loading="lazy" src="<?php echo $local ?>/images/logo_mobile/icon_happy.gif" height="50px" width="50px"
                  alt="..."></img>
          </a>
      </div>
      <div style="margin-top:10px">
-         <a class="footer_icon_zalo" href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;">
+         <a class="footer_icon_zalo" href="javascript:void(0)" onclick="openChatPopup()">
              <img loading="lazy" src="<?php echo $local ?>/images/logo_mobile/icon_zalo.png" height="50px" width="50px"
                  alt="..."></img>
              <div class="ping_zalo"></div>
          </a>
      </div>
      <div style="margin-top:10px">
-         <a class="footer_icon_mess" href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;">
+         <a class="footer_icon_mess" href="javascript:void(0)" onclick="openChatPopup()">
              <img loading="lazy" style="margin-left:3px" src="<?php echo $local ?>/images/logo_mobile/icon_message.webp"
                  height="45px" width="45px" alt="..."></img>
              <div class="ping"></div>
@@ -135,7 +135,7 @@
      </div>
  </div>
 
- <script language="javascript" src="https://tuvan.mayo.com.vn/JS/LsJS.aspx?siteid=KUK38256576&float=1&lng=en"></script>
+ <script language="javascript" src="https://livechat.phongkhamnhatviet.vn/chat-box-ai.js"></script>
  <script async src="<?php echo $local ?>/js/random_number.min.js"></script>
 
  <script defer>
