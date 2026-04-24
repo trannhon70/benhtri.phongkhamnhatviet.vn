@@ -86,7 +86,7 @@
                     <a class="" href="<?php echo $local ?>/tin-tuc-y-khoa.html">tin tức y khoa</a>
                 </li>
                 <li class="header__bottom-nav-ul-li header__bottom-border">
-                    <a class="" href="javascript:void(0)" onclick="openChatPopup()">tư vấn trực tuyến</a>
+                    <a class="" href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;">tư vấn trực tuyến</a>
                 </li>
             </ul>
         </nav>
@@ -193,7 +193,7 @@
                 <a href="<?php echo $local ?>/tin-tuc-y-khoa.html">tin tức y khoa</a>
             </li>
             <li>
-                <a href="javascript:void(0)" onclick="openChatPopup()">tư vấn trực tuyến </a>
+                <a href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;">tư vấn trực tuyến </a>
             </li>
         </ul>
     </nav>

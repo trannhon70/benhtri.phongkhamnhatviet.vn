@@ -113,7 +113,7 @@ setTitleAndScroll();
                     </div>
 
                 </div>
-                <a href="javascript:void(0)" onclick="openChatPopup()" id="bg_mobile_km">
+                <a href="javascript:void(0)" onclick="openZoosUrl('chatwin'); return false;" id="bg_mobile_km">
                     <img width="100%" height="auto" src="<?php echo $local ?>/images/logo_mobile/bg_mobile_km.gif"
                         alt="...">
                 </a>
